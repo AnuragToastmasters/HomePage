@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anurag Toastmasters Home</title>
+   
+    <link rel="stylesheet" href="style.css">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+    
+   
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <img src="images/TMxAU.png" alt="">
+            </div>
+            <ul class="nav-area">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Club Etiquette</a></li>
+                <li><a href="#">Achievements</a></li>
+                <li><a href="#">Executive Committee</a></li>
+                <li><a href="#">Pathways</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+        </div>
+        <div class="welcome-text">
+            <h1>Welcome to anurag Toastmasters</h1>
+        </div>
+    </header>
+</body>
+    
+    <main id = "main">
+        <section id="features-TM">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 box">
+            <i class="ion-ios-bookmarks-outline"></i>
+            <h4 class="title"><a href="">What is Toastmasters?</a></h4>
+            <p class="description">Do you want to practice public speaking, improve your communication and build leadership skills? With Toastmasters, you can break barriers, not your budget. Learn more about the history of the organization and our methodology to help maximize your potential!</p>
+          </div>
+
+          <div class="col-lg-4 box box-bg">
+            <i class="ion-ios-stopwatch-outline"></i>
+            <h4 class="title"><a href="">Club Details</a></h4>
+            <p class="description">We at Anurag Toastmasters Conduct meetings twice in a month and encourage feedback from guests to improve from one meeting to other. Here we create friendly and learning atmosphere for all the members with organised meetings</p>
+          </div>
+
+          <div class="col-lg-4 box">
+            <i class="ion-ios-heart-outline"></i>
+            <h4 class="title"><a href="">Club History</a></h4>
+            <p class="description">Anurag Toastmasters is chattered in the year 2019 febuary 5th with the great support of our deputy director, Faculty coordinators and our Director</p>
+          </div>
+
+        </div>
+      </div>
+    </section> 
+        <section id = "ctd">
+            <div class="container">
+                <header class="section-header">
+                    <h1>Next A.T.M. meet is in</h1>
+                    <div id="clockdiv">
+                        <div>
+                            <span class="days"></span>
+                            <div class="smalltext">Days</div>
+                        </div>
+                        <div>
+                            <span class="hours"></span>
+                            <div class="smalltext">Hours</div>
+                        </div>
+                        <div>
+                            <span class="minutes"></span>
+                            <div class="smalltext">Minutes</div>
+                        </div>
+                        <div>
+                            <span class="seconds"></span>
+                            <div class="smalltext">Seconds</div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </section>
+        <script>
+            function getTimeRemaining(endtime) {
+  const total = Date.parse(endtime) - Date.parse(new Date());
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000 / 60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
+  
+  return {
+    total,
+    days,
+    hours,
+    minutes,
+    seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  const clock = document.getElementById(id);
+  clock.style.display = 'block';
+  const daysSpan = clock.querySelector('.days');
+  const hoursSpan = clock.querySelector('.hours');
+  const minutesSpan = clock.querySelector('.minutes');
+  const secondsSpan = clock.querySelector('.seconds');
+  
+
+  function updateClock() {
+    const t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  const timeinterval = setInterval(updateClock, 1000);
+}
+
+const schedule = [
+    ['Jun 25 2020', 'Jul 6 2020'],
+    ['Sept 21 2020', 'Dec 25 2020'],
+    ];
+for (var i=0; i<schedule.length; i++) {
+  var startDate = schedule[i][0];
+  var endDate = schedule[i][1];
+
+  // put dates in milliseconds for easy comparisons
+  var startMs = Date.parse(startDate);
+  var endMs = Date.parse(endDate);
+  var currentMs = Date.parse(new Date());
+
+  // if current date is between start and end dates, display clock
+  if (endMs > currentMs && currentMs >= startMs ) {
+    initializeClock('clockdiv', endDate);
+  }
+}
+
+schedule.forEach(([startDate, endDate]) => {
+  // put dates in milliseconds for easy comparisons
+  const startMs = Date.parse(startDate);
+  const endMs = Date.parse(endDate);
+  const currentMs = Date.parse(new Date());
+
+  // if current date is between start and end dates, display clock
+  if (endMs > currentMs && currentMs >= startMs ) {
+    initializeClock('clockdiv', endDate);
+  }
+});
+        </script>
+    </main>
+    <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Anurag Toastmasters</h3>
+            <p>Where Leaders Are Made.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Club Etiquette</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Achievements</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Executive Committee</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Pathways</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Resources</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Anurag University<br>
+              Hyderabad 500035<br>
+              India<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.instagram.com/anurag.toastmasters/" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Interested in learning more?</h4>
+            <p>Drop us your E-Mail ID and we'll get in touch with you.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit"  value="Submit">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  
+  </footer>
+    
+    <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+
+
+</html>
